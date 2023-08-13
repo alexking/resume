@@ -7,7 +7,7 @@ import { useHasMounted } from "../hooks/useHasMounted";
 export interface DarkModeToggleProps {}
 
 export const DarkModeToggle = ({}: DarkModeToggleProps) => {
-  const { theme, setTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   // Wait until mounted to render
   const hasMounted = useHasMounted();
@@ -21,9 +21,9 @@ export const DarkModeToggle = ({}: DarkModeToggleProps) => {
   return (
     <button
       className="absolute top-1 right-1 p-2 print:hidden drop-shadow-sm"
-      onClick={() => setTheme(theme == "dark" ? "light" : "dark")}
+      onClick={() => setTheme(resolvedTheme == "dark" ? "light" : "dark")}
     >
-      {theme == "dark" ? "☀️" : "🌕"}
+      {resolvedTheme == "dark" ? "☀️" : "🌕"}
     </button>
   );
 };

@@ -3,7 +3,14 @@
 @tailwind utilities;
 
 
- @page {
+@page {
   size: auto;
   margin: 2cm;
 } 
+
+/* Force color scheme light when printing to avoid issues with the footer being dark */
+@media print { 
+  html {
+    color-scheme: light !important;
+  }
+}
